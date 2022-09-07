@@ -1,0 +1,25 @@
+.home__container-cartd{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2em;
+    margin-left: 10em;
+    padding: 2em;
+}
+.home{
+    display: flex;
+
+}
+/* .home__container-form{
+    margin-top: 60px;  
+} */
+
+/* .home__container-cartd{
+    margin-left: 160px;
+} */
+@media screen and (max-width:760px) {
+    .home__container-cartd{
+        margin-left: 2em;
+    }
+}

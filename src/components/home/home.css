@@ -1,0 +1,115 @@
+.card-home{
+    margin: 0.5em;
+    padding: 0.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    border: 1px solid rgb(234, 227, 227);
+    border-radius: 10px;
+    width: 400px;
+    height: 400px;
+}
+.card-home__img{
+    height: 200px;
+    
+}
+.card-home__header{
+    margin: 0.5em;
+    padding: 0.5em;
+    width: 400px;
+    border-bottom: 1px solid rgb(234, 227, 227);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card-home__body{
+    display: flex;
+    flex-direction: column;
+    justify-content: first baseline;
+    align-items: flex-start;
+    gap: 10px;
+}
+.card-home__button{
+    background-color: #FF4D4D;
+    width: 45px;
+    height: 45px;
+    border-radius: 100%;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+.card-home__button:hover{
+    filter: brightness(1.2);
+}
+.card-home__priceButton{
+    width: 210px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* filtro */
+.formfiltro{
+    margin-top: 80px;
+    margin-left: 2px;
+    max-height: 700px;
+    width: 200px;
+    position: fixed;
+    border: 1px solid #FF4D4D;
+    border-radius: 10px;    
+}
+.formfiltro__price{
+    margin: 10px;
+    opacity: 70%;
+}
+.formfiltro__input-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.formfiltro__input-form input{
+    height: 20px;
+    width: 100px;
+    margin: 10px;
+    padding: 5px;
+}
+.formfiltro__input-to{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.formfiltro__input-to input{
+    height: 20px;
+    width: 100px;
+    margin: 10px;
+    padding: 5px;
+}
+.formfiltro__button-price{
+    height: 30px;
+    width: 100%;
+    
+}
+.formfiltro__button-price button{
+    background-color: #FF4D4D;
+    border: none;
+    width: 100%;
+    height: 100%;
+    color: white;
+    cursor: pointer;
+}
+.formfiltro__category{
+    margin: 10px;
+    opacity: 70%;
+}
+.formfiltro__category-select{
+    margin: 10px;
+}
+
+@media screen and (max-width:760px) {
+    .formfiltro{
+        display: none;
+    }
+}
+
