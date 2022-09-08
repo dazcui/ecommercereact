@@ -31,7 +31,7 @@ const products = useSelector(state=>state.products)
             />
           ))
         }
-     
+          
       </div>
     </div>
   )

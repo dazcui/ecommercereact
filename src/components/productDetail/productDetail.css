@@ -203,4 +203,5 @@
     align-items: center;
     border: none;
     gap: 1em;
+    cursor: pointer;
 }

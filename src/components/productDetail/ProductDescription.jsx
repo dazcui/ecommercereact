@@ -36,18 +36,17 @@ const ProductDescription = ({ productInfo }) => {
             .catch(err => console.log(err))
     }, [])
     // console.log(products);
-    const filteredProducts = products?.filter(product =>
-        product.category.name == productInfo?.category
+    const filteredProducts = products?.filter(produc =>
+        produc.category.name == productInfo?.category
     )
     // console.log(filteredProducts);
 
 //para agregar a la cart
     const handleAddCart = e=>{
-        e.stopPropagation()
         const URL=`https://ecommerce-api-react.herokuapp.com/api/v1/cart`
         const obj = {
-            id: product.id,
-            quantity: {counter}
+            id: productInfo.id,
+            quantity: counter
         }
         axios.post(URL, obj, getConfig())
         .then(res=> console.log(res.data))

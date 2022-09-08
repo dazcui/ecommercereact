@@ -28,9 +28,10 @@ const ProductCartInfo = ({ product, getAllProductsCart }) => {
             <div>
                 <span className='cart__quantity'>{product.productsInCart.quantity}</span>
                 <footer className='cart__item-footer'>
-                    <span className='cart__total-label'>Total:</span>
+                    <span className='cart__total-label'>Price:</span>
                     <p className='cart__total-number'>{product.price}</p>
                 </footer>
+                
             </div>
         </article>
     )

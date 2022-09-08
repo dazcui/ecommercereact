@@ -7,11 +7,19 @@ import getConfig from '../../utils/getConfig'
 const Cart = () => {
 
     const [cartProducts, setCartProducts] = useState()
+    const [totalPrice, setTotalPrice] = useState()
   
     const getAllProductsCart = () => {
       const URL = 'https://ecommerce-api-react.herokuapp.com/api/v1/cart'
       axios.get(URL, getConfig())
-        .then(res => setCartProducts(res.data.data.cart.products))
+        .then(res => {
+          const products = res.data.data.cart.products
+          setCartProducts(products)
+          const total = products.reduce((acc,cv)=>{
+            return Number(cv.price) * cv.productsInCart.quantity + acc
+          },0)
+          setTotalPrice(total)
+        })
         .catch(err => setCartProducts())
     }
   
@@ -32,6 +40,7 @@ const Cart = () => {
         .then(res => {
           console.log(res.data)
           getAllProductsCart()
+          setTotalPrice(0)
         })
         .catch(err => console.log(err))
     }
@@ -53,8 +62,8 @@ const Cart = () => {
         </div>
         <hr className='cart__hr' />
         <footer className='cart__footer'>
-          {/* <span className='cart__total-global-label'>Total:</span>
-          <p className='cart__total-global-value'>1350</p> */}
+          <span className='cart__total-global-label'>Your account is:</span>
+          <p className='cart__total-global-value'>{totalPrice}</p>
           <button onClick={handleCheckout} className='cart__btn'>Checkout</button>
         </footer>
       </section>
