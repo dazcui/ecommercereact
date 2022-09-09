@@ -1,31 +1,51 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { getAllProducts, getProductByCategory } from '../../store/slices/products.slice'
 import './home.css'
 const FormFiltro = () => {
+    // filtro por categoria
+    const [categories, setCategories] = useState()
+    useEffect(() => {
+        const URL = `https://ecommerce-api-react.herokuapp.com/api/v1/products/categories `
+        axios.get(URL)
+            .then(res => setCategories(res.data.data.categories))
+            .catch(err => console.log(err))
+    }, [])
+
+    const dispatch = useDispatch()
+    const handleFilterCategory = id => {
+        dispatch(getProductByCategory(id))
+    }
+    const handleClickAllProducts = () => {
+        dispatch(getAllProducts())
+    }
+    // const products =useSelector(state => state.products)
+
+
+    //filtro por precio
+
+    
+
     return (
         <div className='formfiltro'>
-            <div className='formfiltro__price' >
-                <div>
-                    <h3>Price</h3>
-                </div>
-                <div className='formfiltro__input-form'>
-                    <h4>Form</h4><input type="text" />
-                </div>
-                <div className='formfiltro__input-to'>
-                    <h4>To</h4><input type="text" />
-                </div>
-                <div className='formfiltro__button-price'>
-                    <button>Filter price</button>
-                </div>
-            </div>
+                        
             <div className='formfiltro__category'>
                 <div>
                     <h3>Category</h3>
                 </div>
-                <div className='formfiltro__category-select'>
-                    <div><h4>Smart tv</h4></div>
-                    <div><h4>Computers</h4></div>
-                    <div><h4>Smartphone</h4></div>
-                </div>
+                <ul>
+                    <li className='form__filtro-click' onClick={handleClickAllProducts}>All Products</li>
+                    {
+                        categories?.map(category => (
+                            <li className='form__filtro-click' onClick={() => handleFilterCategory(category.id)} key={category.id}>
+                                 {category.name}
+                            </li>
+
+                        ))
+                    }
+
+                </ul>
 
             </div>
         </div>
